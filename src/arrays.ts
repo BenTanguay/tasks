@@ -95,5 +95,21 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    return [];
+    const result: number[] = [];
+    let sum = 0;
+    let negativeFound = false;
+    for (const value of values) {
+        if (value < 0 && !negativeFound) {
+            negativeFound = true;
+            result.push(value);
+            result.push(sum);
+        } else {
+            result.push(value);
+            sum += value;
+        }
+    }
+    if (!negativeFound) {
+        result.push(sum);
+    }
+    return result;
 }
