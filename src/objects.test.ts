@@ -104,6 +104,19 @@ describe("Testing the object functions", () => {
         expect(isValid(SHAPE_QUESTION, "circle")).toEqual(true);
         expect(isValid(SHAPE_QUESTION, "circle ")).toEqual(false);
         expect(isValid(SHAPE_QUESTION, "rhombus")).toEqual(false);
+        // This forces the code into the final 'else' block
+        const UNKNOWN_QUESTION = {
+            id: 99,
+            name: "Unknown",
+            body: "What is this?",
+            type: "essay_question" as any, // 'as any' bypasses TypeScript rules
+            options: [],
+            expected: "",
+            points: 1,
+            published: true,
+        };
+
+        expect(isValid(UNKNOWN_QUESTION, "some answer")).toEqual(false);
     });
 
     ///////////////////////////////////
