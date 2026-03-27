@@ -2,6 +2,10 @@ import React from "react";
 import "./App.css";
 import picture from './picture.png'; // with import
 import { Button, Col, Container, Row } from "react-bootstrap";
+import { TwoDice } from "./components/TwoDice";
+import { ChangeType } from "./components/ChangeType";
+import { RevealAnswer } from "./components/RevealAnswer";
+import { Counter } from "./components/Counter";
 
 function App(): React.JSX.Element {
     return (
@@ -34,6 +38,10 @@ function App(): React.JSX.Element {
                     </Col>
                 </Row>
             </Container>
+            <TwoDice />
+            <ChangeType />
+            <RevealAnswer />
+            <Counter />
         </div>
     );
 }
